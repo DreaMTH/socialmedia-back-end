@@ -8,8 +8,8 @@ postRouter.post('/create', checkAuth, async (req: Request, res: Response) => {
     try {
         const { post } = req.body;
         const doc = new postModel({
-            createdBy: (<any>req).userId,
-            post,
+            createdBy: req.headers.userId,
+            Post : post,
         });
         const newPost = await doc.save();
         if (!newPost) {

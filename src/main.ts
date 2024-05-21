@@ -2,7 +2,9 @@ import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import { userRouter, authRouter, postRouter } from "./Routes/index";
 
-mongoose.connect('connection string')
+mongoose.connect(
+    'mongodb+srv://dreamth:MlvAWjDhTB7E5Bqk@testclaster.jnzonwj.mongodb.net' +
+    '/testTask?retryWrites=true&w=majority&appName=testClaster')
     .then(() => {
         console.log("Connected to the database");
     }).catch((err) => {

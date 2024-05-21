@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 
 export const checkAuth = (req: Request, res: Response, next: NextFunction) => {
-    const token = (req.headers.authorization || "").replace("/Bearer\s?/", "");
+    const token = (req.headers.authorization || "").slice(7);
     if (token) {
         try {
             const verify = jwt.verify(token, "token");
