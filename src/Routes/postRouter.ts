@@ -7,9 +7,14 @@ const postRouter = express.Router();
 postRouter.post('/create', checkAuth, async (req: Request, res: Response) => {
     try {
         const { post } = req.body;
+        if (!post || (post.length < 1)) {
+            return res.status(404).json({
+                message: "Invalid post.",
+            });
+        }
         const doc = new postModel({
             createdBy: req.headers.userId,
-            Post : post,
+            Post: post,
         });
         const newPost = await doc.save();
         if (!newPost) {
