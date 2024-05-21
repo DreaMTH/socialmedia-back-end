@@ -68,3 +68,4 @@ authRouter.post('/login', async (req, res) => {
         console.log("Attempt to login");
     }
 });
+export default authRouter;

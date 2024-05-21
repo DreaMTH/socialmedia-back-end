@@ -44,4 +44,5 @@ postRouter.get('/', checkAuth, async (req: Request, res: Response) => {
     } finally {
         console.log("Attempt to get posts");
     }
-})
+});
+export default postRouter;

@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import mongoose from "mongoose";
+import { userRouter, authRouter, postRouter } from "./Routes/index";
 
 mongoose.connect('connection string')
     .then(() => {
@@ -11,6 +12,9 @@ mongoose.connect('connection string')
 const app = express();
 const port = 3000;
 app.use(express.json());
+app.use('/user', userRouter);
+app.use("/auth", authRouter);
+app.use("/posts", postRouter);
 app.get("/", (req: Request, res: Response) => {
     res.status(200).json({
         message: "Main page",

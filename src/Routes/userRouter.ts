@@ -32,3 +32,4 @@ userRouter.get('/:id', checkAuth, async (req: Request, res: Response) => {
         console.log("Attempt to get user");
     }
 });
+export default userRouter;
