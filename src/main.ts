@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 
 mongoose.connect('connection string')
@@ -11,7 +11,7 @@ mongoose.connect('connection string')
 const app = express();
 const port = 3000;
 app.use(express.json());
-app.get("/", (req: express.Request, res: express.Response) => {
+app.get("/", (req: Request, res: Response) => {
     res.status(200).json({
         message: "Main page",
     })
