@@ -1,10 +1,10 @@
 import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import { userRouter, authRouter, postRouter } from "./Routes/index";
-
-mongoose.connect(
-    'mongodb+srv://dreamth:MlvAWjDhTB7E5Bqk@testclaster.jnzonwj.mongodb.net' +
-    '/testTask?retryWrites=true&w=majority&appName=testClaster')
+import cfg from "dotenv";
+cfg.config();
+const connectionString = process.env.CONNECTION_STRING;
+mongoose.connect(connectionString || '')
     .then(() => {
         console.log("Connected to the database");
     }).catch((err) => {
